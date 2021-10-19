@@ -7,10 +7,18 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
-        android:text="@string/strBtn1"/>
+        android:text="@string/strBtn1"
+        app:layout_editor_absoluteY="10dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/strBtn2"
+        tools:layout_editor_absoluteY="176dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
