@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv1;
     Button btn1;
     Boolean bl;
+    Integer num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         tv1 = (TextView) findViewById(R.id.textView1);
         btn1 = (Button) findViewById(R.id.btn1);
         bl = true;
+        num = 1;
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 if(bl) {
                     tv1.setTextSize(50);
                     tv1.setTextColor(Color.BLUE);
@@ -49,6 +52,36 @@ public class MainActivity extends AppCompatActivity {
                     tv1.setTextSize(30);
                     bl = true;
                     System.out.println(bl);
+                }
+                */
+                switch (num){
+                    case 1:
+                        tv1.setTextSize(50);
+                        tv1.setTextColor(Color.BLUE);
+                        tv1.setTypeface(Typeface.SERIF);
+                        tv1.setText("DAMOYO조_형기상");
+                        num += 1;
+                        // 콘솔 디버깅2_선호!!
+                        Log.i("태그명", "blue");
+                        break;
+                    case 2:
+                        tv1.setTextSize(50);
+                        tv1.setTextColor(Color.RED);
+                        tv1.setTypeface(Typeface.SERIF);
+                        tv1.setText("DAMOYO조_형기상");
+                        num += 1;
+                        // 콘솔 디버깅2_선호!!
+                        Log.i("태그명", "red");
+                        break;
+                    case 3:
+                        tv1.setTextSize(50);
+                        tv1.setTextColor(Color.YELLOW);
+                        tv1.setTypeface(Typeface.SERIF);
+                        tv1.setText("DAMOYO조_형기상");
+                        num = 1;
+                        // 콘솔 디버깅2_선호!!
+                        Log.i("태그명", "yellow");
+                        break;
                 }
             }
         });
