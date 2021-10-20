@@ -41,11 +41,7 @@ public class MainActivity extends AppCompatActivity {
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Log.d("클릭됨", "클릭중");
                 // true, false여부 체크
-//                Log.d("버튼", btn.toString());
-//                Log.d("체크박스", isChecked+"");
-
                 // 체크박스가 true면 어플이 보이게, false면 안보이게 하기위해 if문 분기
                 if(isChecked){
                     // ImageView를 제외한 창부품을 보이도록 전환
@@ -53,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                     view2.setVisibility(View.VISIBLE);
                     rg.setVisibility(View.VISIBLE);
                     btn.setVisibility(View.VISIBLE);
-
                 }else{
                     // 창부품을 안보이도록 전환
                     view2.setVisibility(View.INVISIBLE);
@@ -61,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     btn.setVisibility(View.INVISIBLE);
                     iv1.setVisibility(View.INVISIBLE);
                     iv2.setVisibility(View.INVISIBLE);
-                    iv1.setSelected(false);
-                    iv2.setSelected(false);
+                    // 라디오 버튼 초기화
+                    // 라디오 버튼의 그룹에서 .clearCheck()를 사용
+                    rg.clearCheck();
                 }
             }
         });
-
         // 어떤 동물의 사진을 보여줄지는, 위의 어플 요소와는 별개로
         // RadioButton에 뭐가 선택되었는지만을 판단하여야 하기 때문에 따로 지정
         btn.setOnClickListener(new View.OnClickListener() {
@@ -77,14 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 // RadioGroup변수.getCheckedRadioButtonId()를 사용하여
                 // 선택한 버튼의 ID값을 가져온다.
                 int checked = rg.getCheckedRadioButtonId();
-                Log.d("선택 버튼", checked+"");
-
                 if(checked == 2131231049){
-                    Log.i("안내", "고양이 선택");
                     iv1.setVisibility(View.VISIBLE);
                     iv2.setVisibility(View.INVISIBLE);
                 }else if(checked == 2131231050){
-                    Log.i("안내", "강아지 선택");
                     iv2.setVisibility(View.VISIBLE);
                     iv1.setVisibility(View.INVISIBLE);
                 }
