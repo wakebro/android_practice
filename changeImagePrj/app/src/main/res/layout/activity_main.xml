@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text="보고싶은 동물"
         android:textSize="15dp"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@+id/cb1"
         tools:layout_editor_absoluteX="162dp" />
 
