@@ -13,6 +13,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    // 창 부품 선언
     Switch sw;
     TextView tv;
     RadioGroup rg;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 창부품 연결
         sw = (Switch) findViewById(R.id.sw);
         tv = (TextView) findViewById(R.id.view2);
         rg = (RadioGroup) findViewById(R.id.rg);
@@ -32,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
         dog2 = (RadioButton) findViewById(R.id.rb3);
         iv = (ImageView) findViewById(R.id.iv);
 
+        // 이벤트 연결
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.i("status", isChecked+"");
+
+                // 스위치가 켜져있다면, 요소가 보이게
                 if(isChecked){
                     tv.setVisibility(View.VISIBLE);
                     rg.setVisibility(View.VISIBLE);
