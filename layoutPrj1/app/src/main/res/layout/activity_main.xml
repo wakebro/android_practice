@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 <!--
     <Button
@@ -42,25 +42,107 @@
         android:layout_height="wrap_content"
         android:text="left"
         android:layout_gravity="left"/>
--->
+
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="350dp"
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/teal_200"
+        android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_gravity="center"/>
+            android:text="Button1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button2"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button3"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="210dp"
         android:layout_height="350dp"
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/purple_200"
+        android:orientation="horizontal"
         xmlns:android="http://schemas.android.com/apk/res/android">
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button2"/>
     </LinearLayout>
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#FBC97F">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="버튼1"
+            app:backgroundTint="#A6A3A3"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="버튼2"
+            app:backgroundTint="#A6A3A3"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="#8BF2FF"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="버튼3"
+            app:backgroundTint="#A6A3A3"
+            android:layout_margin="10dp"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="버튼4"
+            app:backgroundTint="#A6A3A3"
+            android:layout_margin="10dp"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="버튼5"
+            app:backgroundTint="#A6A3A3"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#C4F48B"
+        android:orientation="vertical"
+        android:gravity="center"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="버튼6"
+            app:backgroundTint="#A6A3A3"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="버튼7"
+            app:backgroundTint="#A6A3A3"/>
+    </LinearLayout>
+
 </LinearLayout>
