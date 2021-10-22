@@ -1,4 +1,4 @@
-package com.ict.layoutprj2;
+package com.ict.layoutprj3;
 
 import androidx.appcompat.app.AppCompatActivity;
 

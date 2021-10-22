@@ -128,7 +128,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
     -->
-
+<!--
     <Button
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -166,4 +166,38 @@
         android:layout_alignBottom="@id/baseBtn"
         android:layout_toRightOf="@id/baseBtn"
         android:text="alignbottom,torightof"/>
+-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/baseBtn1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="Base1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/baseBtn2"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="Base2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/baseBtn2"
+        android:layout_toRightOf="@id/baseBtn1"
+        android:text="result1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/baseBtn1"
+        android:text="result2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/baseBtn1"
+        android:layout_toLeftOf="@id/baseBtn2"
+        android:text="result3"/>
+
 </RelativeLayout>
