@@ -87,6 +87,12 @@
             android:id="@+id/key_div"/>
     </TableRow>
     <TableRow>
+        <Button
+            android:layout_weight="1"
+            android:text="C"
+            android:id="@+id/key_c"/>
+    </TableRow>
+    <TableRow>
         <TextView
             android:text="계산결과 : "
             android:textSize="30dp"/>

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText et1, et2;
     TextView result;
-    Button key_plu, key_min, key_mul, key_div;
+    Button key_plu, key_min, key_mul, key_div, key_c;
 
     String temp1 = "";
     String temp2 = "";
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         key_min = (Button) findViewById(R.id.key_min);
         key_mul = (Button) findViewById(R.id.key_mul);
         key_div = (Button) findViewById(R.id.key_div);
+        key_c = (Button) findViewById(R.id.key_c);
 
 
         // 부품 배열에 대해서는 이벤트까지 반복문으로 설정
@@ -54,10 +55,18 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.d("clickNum", "click");
 //                    Log.d("번호", numBtns[index].getText()+"");
                     if(et1.isFocused()){
+                        if(numBtns[index].getText().equals("0")){
+                        }
                         temp1 += numBtns[index].getText()+"";
+                        if(temp1.equals("0")){
+                            temp1 = "";
+                        }
                         et1.setText(temp1);
                     }else if(et2.isFocused()){
                         temp2 += numBtns[index].getText()+"";
+                        if(temp2.equals("0")){
+                            temp2 = "";
+                        }
                         et2.setText(temp2);
                     }
                 }
@@ -93,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 int num1 = Integer.parseInt(et1.getText() + "");
                 int num2 = Integer.parseInt(et2.getText() + "");
                 result.setText((num1 / num2) + "");
+            }
+        });
+        key_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et1.setText("");
+                et2.setText("");
             }
         });
 
