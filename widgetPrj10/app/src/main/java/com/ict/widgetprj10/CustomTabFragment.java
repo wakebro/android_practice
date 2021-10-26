@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 // ActionBar
@@ -33,10 +34,30 @@ public class CustomTabFragment extends androidx.fragment.app.Fragment{
         baseLayout.setOrientation(LinearLayout.VERTICAL);
         baseLayout.setLayoutParams(params);
 
-        if(tabName == "한식") baseLayout.setBackgroundColor(Color.RED);
-        if(tabName == "중식") baseLayout.setBackgroundColor(Color.BLUE);
-        if(tabName == "일식") baseLayout.setBackgroundColor(Color.YELLOW);
-
+        ImageView img = new ImageView(super.getActivity());
+        if(tabName == "한식") {
+            baseLayout.setBackgroundColor(Color.RED);
+            img.setImageResource(R.drawable.file1);
+        }
+        if(tabName == "중식"){
+            baseLayout.setBackgroundColor(Color.BLUE);
+            img.setImageResource(R.drawable.file2);
+        }
+        if(tabName == "일식") {
+            baseLayout.setBackgroundColor(Color.YELLOW);
+            img.setImageResource(R.drawable.file3);
+        }
+        baseLayout.addView(img);
+        /*
+        // 만약 그림을 넣고 싶다면
+        // 위젯 생성
+        ImageView img = new ImageView(super.getActivity());
+        // 위젯에 필요한 경로 등을 지정해준 다음
+        img.setImageResource(R.drawable.ic_launcher_background);
+        // baseLayout의 내부 위젯으로 .addView()를 통해 등록한다.
+        baseLayout.addView(img);
+        위 음식쪽에서 응용
+        */
         return baseLayout;
     }
 }
