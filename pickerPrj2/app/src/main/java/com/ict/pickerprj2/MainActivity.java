@@ -9,6 +9,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     DatePicker dPicker;
     TimePicker tPicker;
@@ -33,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
         checkinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 현재 시간 가져오기
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+
+                // 1. 시간을 얻어서 dPicker, tPicker에 갱신
+                dPicker.updateDate((date.getYear() + 1900),
+                        (date.getMonth()),
+                        (date.getDate()));
+                tPicker.setHour(date.getHours());
+                tPicker.setMinute(date.getMinutes());
+
                 thisyear = dPicker.getYear();
                 month = dPicker.getMonth() + 1;
                 day = dPicker.getDayOfMonth();
@@ -47,6 +60,18 @@ public class MainActivity extends AppCompatActivity {
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 현재 시간 가져오기
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+
+                // 1. 시간을 얻어서 dPicker, tPicker에 갱신
+                dPicker.updateDate((date.getYear() + 1900),
+                                    (date.getMonth()),
+                                    (date.getDate()));
+                tPicker.setHour(date.getHours());
+                tPicker.setMinute(date.getMinutes());
+
+                // 세팅된 시간을 가져 옴
                 thisyear = dPicker.getYear();
                 month = dPicker.getMonth() + 1;
                 day = dPicker.getDayOfMonth();
