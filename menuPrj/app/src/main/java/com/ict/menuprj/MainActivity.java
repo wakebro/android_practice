@@ -1,0 +1,43 @@
+package com.ict.menuprj;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+public class MainActivity extends AppCompatActivity {
+
+    // 창부품 선언
+    // 리니어 레이아웃 1개, 버튼 1개
+    LinearLayout outLayout;
+    Button btn1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // 창부품 연결
+        outLayout = (LinearLayout) findViewById(R.id.outLayout);
+        btn1 = (Button) findViewById(R.id.btn1);
+
+        setTitle("화면 상단 이름 바꾸기");
+    }
+    // 외부 xml파일 추가 등록
+    // 커서를 onCreate 바깥에 둔 다음 상단의 code -> Override Methods를 선택하고,
+    // onCreateOptionsMenu를 선택
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        // 메뉴 추가를 위해 inflater를 활용
+        MenuInflater mInflater = getMenuInflater();
+        // 기존 레이아웃에 메뉴 삽입
+        // .inflate(리소스 폴더 내 xml파일 지정, menu);
+        mInflater.inflate(R.menu.menu1, menu);
+        return true;
+    }
+}
