@@ -24,6 +24,10 @@
                 android:id="@+id/upSize"
                 android:title="사이즈 2배">
             </item>
+            <item
+                android:id="@+id/btnReset"
+                android:title="초기화">
+            </item>
         </menu>
     </item>
 </menu>

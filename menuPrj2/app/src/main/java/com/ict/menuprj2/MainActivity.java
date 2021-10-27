@@ -1,4 +1,4 @@
-package com.ict.menuprj;
+package com.ict.menuprj2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -32,17 +33,19 @@ public class MainActivity extends AppCompatActivity {
         setTitle("화면 상단 이름 바꾸기");
     }
 
-    // 외부 xml파일 추가 등록
-    // 커서를 onCreate 바깥에 둔 다음 상단의 code -> Override Methods를 선택하고,
-    // onCreateOptionsMenu를 선택
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        // 메뉴 추가를 위해 inflater를 활용
-        MenuInflater mInflater = getMenuInflater();
-        // 기존 레이아웃에 메뉴 삽입
-        // .inflate(리소스 폴더 내 xml파일 지정, menu);
-        mInflater.inflate(R.menu.menu1, menu);
+        menu.add(0,1,0,"배경을 빨강으로 바꾸기");
+        menu.add(0,2,0,"배경을 파랑으로 바꾸기");
+        menu.add(0,3,0,"배경을 노랑으로 바꾸기");
+        menu.add(0,4,0,"배경을 초록으로 바꾸기");
+        // 서브 메뉴 추가
+        SubMenu sMenu = menu.addSubMenu("서브 메뉴명");
+        sMenu.add(0,5,0,"버튼 45도 회전");
+        sMenu.add(0,6,0,"버튼 2배");
+        sMenu.add(0,7,0,"버튼 초기화");
+
         return true;
     }
 
@@ -52,29 +55,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        // Log.d("debug",item.getItemId()+"");
-        if(item.getItemId() == R.id.backRed) outLayout.setBackgroundColor(Color.RED);
-        else if(item.getItemId() == R.id.backGreen) outLayout.setBackgroundColor(Color.GREEN);
-        else if(item.getItemId() == R.id.backYellow) outLayout.setBackgroundColor(Color.YELLOW);
-        else if(item.getItemId() == R.id.backBlue) outLayout.setBackgroundColor(Color.BLUE);
-        else if(item.getItemId() == R.id.rotate) {
-            // Log.d("각도", btn1.getRotation()+"");
-            float dgree = Float.parseFloat(btn1.getRotation()+"");
-            btn1.setRotation(dgree + 45);
+        Log.d("debug",item.getItemId()+"");
+        if(item.getItemId() == 1) outLayout.setBackgroundColor(Color.RED);
+        else if(item.getItemId() == 2) outLayout.setBackgroundColor(Color.BLUE);
+        else if(item.getItemId() == 3) outLayout.setBackgroundColor(Color.YELLOW);
+        else if(item.getItemId() == 4) outLayout.setBackgroundColor(Color.GREEN);
+        else if(item.getItemId() == 5) {
+            float rotation = Float.parseFloat(btn1.getRotation() + "");
+            btn1.setRotation(rotation + 45);
         }
-        else if(item.getItemId() == R.id.upSize) {
-            // Log.d("크기X", btn1.getScaleX() + "");
-            // Log.d("크기Y", btn1.getScaleY() + "");
+        else if(item.getItemId() == 6) {
             float scaleX = Float.parseFloat(btn1.getScaleX() + "");
             float scaleY = Float.parseFloat(btn1.getScaleY() + "");
             btn1.setScaleX(scaleX * 2);
             btn1.setScaleY(scaleY * 2);
         }
-        else if(item.getItemId() == R.id.btnReset){
+        else if(item.getItemId() == 7) {
             btn1.setRotation(0);
             btn1.setScaleX(1);
             btn1.setScaleY(1);
         }
+
 
         return super.onOptionsItemSelected(item);
     }
