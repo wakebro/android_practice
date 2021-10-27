@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/rotationBtn"
+        android:title="45도 기울이기"/>
+    <item
+        android:id="@+id/sizeUpBtn"
+        android:title="크기 2배"/>
+    <item
+        android:id="@+id/reset"
+        android:title="초기화"/>
+</menu>

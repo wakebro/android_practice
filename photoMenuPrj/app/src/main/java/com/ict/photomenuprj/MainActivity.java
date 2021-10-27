@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout outLayout;
     ImageView img;
 
     @Override
@@ -19,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        outLayout = (LinearLayout) findViewById(R.id.outLayout);
         img = (ImageView) findViewById(R.id.img);
     }
 
