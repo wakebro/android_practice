@@ -2,6 +2,7 @@ package com.ict.listviewprj1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("id확인", id + "");*/
                 // 인덱스 번호를 이용해 클릭하면 Toast형태로 클릭한 도시명이 뜨도록 설정
                 Toast.makeText(getApplicationContext(), trips[position] + "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SubActivity.class);
+                intent.putExtra("idx", position);
+                intent.putExtra("name", trips[position]);
+                startActivity(intent);
             }
         });
     }
