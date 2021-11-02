@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.ict.movieprj.retrofit.MovieAdapter;
 import com.ict.movieprj.retrofit.RetrofitClient;
 import com.ict.movieprj.retrofit.RetrofitInterface;
+import com.ict.movieprj.vo.BoxOfficeResult;
 import com.ict.movieprj.vo.DailyBoxOffice;
 import com.ict.movieprj.vo.Example;
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     // 리사이클러뷰 부품 선언
     RecyclerView recyclerView;
     // 리사이클러 어댑터 부품 선언
+    RecyclerView.Adapter mAdapter;
 
     // 상수로 본인 key값을 저장
     final String KEY = "a363ad9009c67c7fa54b6387aec5fa39";
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         retrofitClient = RetrofitClient.getInstance();
         retrofitInterface = RetrofitClient.getRetrofitInterface();
 
-       // 버튼 클릭시 비동기 요청
+// 버튼 클릭시 비동기 요청
 /*        // 버튼 클릭시 비동기 요청 넣기
         asyncBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +77,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
+        // 리사이클러뷰 요소를 먼저 연결
+        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
 
+        // 화면이 켜졌을 때 비동기 요청으로 데이터를 받아오고,
+        // 받아온 데이터를 리사이클러뷰 내부에 세팅하도록 처리
+        retrofitInterface.getBoxOffice(KEY, "20211010").enqueue(new Callback<Example>() {
+            @Override
+            public void onResponse(Call<Example> call, Response<Example> response) {
+                // 비동기 요청 성공 시 처리할 내용
+                // 비동기 데이터 저장
+                Example result = response.body();
+                // result 내부의 영화정보를 얻어서 MovieAdapter 생성자에 전달
+                mAdapter = new MovieAdapter(result.getBoxOfficeResult().getDailyBoxOfficeList());
+                // 리사이클러뷰에 MovieAdapter를 전단해서 카드뷰 양식으로 반복하도록 처리
+                recyclerView.setAdapter(mAdapter);
+            }
 
+            @Override
+            public void onFailure(Call<Example> call, Throwable t) {
+                // 비동기 요청 실패 시 처리할 내용
+                Log.d("요청실패", "요청에 실패했습니다.");
+            }
+        });
     }
 }
