@@ -1,12 +1,14 @@
 package com.ict.movieprj;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ict.movieprj.retrofit.MovieAdapter;
@@ -79,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 리사이클러뷰 요소를 먼저 연결
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+        // 리사이클러뷰는 레이아웃 설정을 자바쪽에서 받아야 표현된다.
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
 
         // 화면이 켜졌을 때 비동기 요청으로 데이터를 받아오고,
         // 받아온 데이터를 리사이클러뷰 내부에 세팅하도록 처리
